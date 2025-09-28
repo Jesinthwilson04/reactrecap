@@ -20,7 +20,11 @@ const Search=()=>{
 }
 function Header(){
   return(
-    <>
+    <div className='header' style={{
+      backgroundColor: 'grey',
+      display: 'flex',
+      flex: '1 0 auto'
+    }}>
     <h1> Header</h1>
     <Search/>
     <ul>
@@ -28,7 +32,7 @@ function Header(){
       <li>About</li>
       <li>Contact</li>
     </ul>
-    </>
+    </div>
 
   )
 }
@@ -36,8 +40,8 @@ function Header(){
 function App() {
   return (
     <div className="App">
-      <h1>Hey {name} !!</h1>
       <Header/>
+      <h1>Hey {name} !!</h1>
       {/* <Button/>
       <Search/> */}
     </div>
