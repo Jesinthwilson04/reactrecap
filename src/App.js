@@ -12,11 +12,17 @@ function Button(){
     }> {buttonname}</button>
   )
 }
+const Search=()=>{
+  return(
+    <input type="text" placeholder="Search here"/>
+)
+}
 function App() {
   return (
     <div className="App">
       <h1>Hey {name} !!</h1>
       <Button/>
+      <Search/>
     </div>
   );
 }
