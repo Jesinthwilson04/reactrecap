@@ -53,7 +53,7 @@ function NameRoll(){
   const students=[
     {name:'jesi', rollno:1},
     {name:'kann', rollno:2},
-    {name:'wila', rollno:3}
+    {name:'wils', rollno:3}
   ];
   return (
     <>
