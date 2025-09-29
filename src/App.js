@@ -6,8 +6,8 @@ function ConditionalRender(){
   const isAdmin=true;
   return(
     <div>
-      <h1>Conditional Rendering</h1>
-      {isAdmin ? <h1>Admin</h1> : <h1>User</h1>}
+      <h2>Conditional Rendering</h2>
+      {isAdmin ? <h2>Admin</h2> : <h2>User</h2>}
     </div>
   )
 }
@@ -38,7 +38,7 @@ function List(){
 
   return (
     <>
-    <h1>List Rendering</h1> 
+    <h2>List Rendering</h2> 
     <ul>
       {names.map(name=> <li key={name}> {name}</li>)}
     </ul>
@@ -70,7 +70,7 @@ function NameRoll(){
   ];
   return (
     <>
-    <h1>Name and Rollno</h1>
+    <h2>Name and Rollno</h2>
     <p>
       {
         students.map((student)=>{
@@ -90,7 +90,7 @@ function ListItems(){
   const list=['jesi','kann','wils'];
   return(
     <>
-    <h1>Conditional CSS</h1>
+    <h2>Conditional CSS</h2>
     <ul>
       {
         list.map((item,index)=>{
@@ -101,6 +101,9 @@ function ListItems(){
     </>
   )
 }
+
+//hooks
+//usestate
 
 
 //main component
