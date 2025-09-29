@@ -49,6 +49,9 @@ function List(){
 
   )
 }
+
+
+
 //name and rollno
 function NameRoll(){
   const students=[
@@ -68,6 +71,10 @@ function NameRoll(){
     </>
   )
 }
+
+
+
+
 //conditional css
 function ListItems(){
   const list=['jesi','kann','wils'];
