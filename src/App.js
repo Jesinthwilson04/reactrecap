@@ -113,7 +113,7 @@ function ListItems(){
 //hooks
 //usestate
 function Counter(){
-  const[count,setCount]=useState(0);
+  let[count,setCount]=useState(0);
   let countnorm=0;
 
   return(
@@ -121,7 +121,11 @@ function Counter(){
     <h2> Usestate hooks</h2>
     <button className='button'  onClick={()=>countnorm++}>CounterButton normal : {countnorm}</button>
     <br></br> <br></br>
-    <button className='button' onClick={()=>setCount(count+1)} >CounterButtonhooks : {count}</button>
+    <button className='button' onClick={()=>setCount(count+1)} >CounterButtonhooks : {count}</button> 
+    {count>=10? <h4>Count reached 10 you can only exceed upto 20</h4> : null}
+    <br></br> <br></br>
+    {count===20 ? setCount(0) : null}
+
     </>
   )
 }
