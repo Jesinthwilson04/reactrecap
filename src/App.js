@@ -1,5 +1,13 @@
 import React from 'react';
 import './App.css';
+import { useState } from 'react'; 
+
+
+
+
+
+
+
 //condtional rendering
 function ConditionalRender(){
 
@@ -104,7 +112,13 @@ function ListItems(){
 
 //hooks
 //usestate
+function Counter(){
+  const[count,setCount]=useState(0);
 
+  return(
+    <button onClick={()=>setCount(count+1)}>count : {count}</button>
+  )
+}
 
 //main component
 function App() {
@@ -120,6 +134,7 @@ function App() {
       <Dash/> 
       <ListItems/>
       <Dash/>
+      <Counter/>  
     </div>
   );
 }
