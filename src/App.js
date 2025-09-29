@@ -114,9 +114,15 @@ function ListItems(){
 //usestate
 function Counter(){
   const[count,setCount]=useState(0);
+  let countnorm=0;
 
   return(
-    <button onClick={()=>setCount(count+1)}>count : {count}</button>
+    <>
+    <h2> Usestate hooks</h2>
+    <button className='button' style= {{backgroundColor:'lightblue', padding:'40px',fontSize:'44px'}} onClick={()=>countnorm++}>CounterButton normal : {countnorm}</button>
+    <br></br> <br></br>
+    <button className='button' style= {{backgroundColor:'lightblue', padding:'40px',fontSize:'44px'}} onClick={()=>setCount(count+1)} >CounterButtonhooks : {count}</button>
+    </>
   )
 }
 
