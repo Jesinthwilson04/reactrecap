@@ -2,9 +2,11 @@ import React from 'react';
 import './App.css';
 //condtional rendering
 function ConditionalRender(){
+
   const isAdmin=true;
   return(
     <div>
+      <h1>Conditional Rendering</h1>
       {isAdmin ? <h1>Admin</h1> : <h1>User</h1>}
     </div>
   )
@@ -36,6 +38,7 @@ function List(){
 
   return (
     <>
+    <h1>List Rendering</h1> 
     <ul>
       {names.map(name=> <li key={name}> {name}</li>)}
     </ul>
@@ -48,6 +51,12 @@ function List(){
 
 
   )
+}
+
+//dash
+const Dash = () =>
+{
+  return <div>-------------------------------------------------------------------------------------------------------------</div>
 }
 
 
@@ -97,9 +106,13 @@ function App() {
       <button onClick={onclickLog} value={0}>clickme</button>
       <input type="text" onChange={onSearchChange} placeholder='search here'/>
       <ConditionalRender/>
+      <Dash/>
       <List/>
+      <Dash/> 
       <NameRoll/>
+      <Dash/> 
       <ListItems/>
+      <Dash/>
     </div>
   );
 }
