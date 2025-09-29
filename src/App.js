@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 //condtional rendering
 function ConditionalRender(){
@@ -38,10 +39,10 @@ function List(){
     <ul>
       {names.map(name=> <li key={name}> {name}</li>)}
     </ul>
-    <p>
+    <p> 
       {names.map((name)=> name)}
       <br></br>
-      {names.map((name,index)=> index===2 ? <strong> {name} </strong> : <>{name}</>)}
+      {names.map((name,index)=> index===2 ? <strong key={index}> {name} </strong> : <React.Fragment key={index}>{name}</React.Fragment>)}
     </p>
     </>
 
@@ -60,14 +61,29 @@ function NameRoll(){
     <p>
       {
         students.map((student)=>{
-          return (<> <strong>{student.name} : {student.rollno}</strong><br></br></>)
+          return (<React.Fragment key={student.rollno}> <strong key={student.rollno}>{student.name} : {student.rollno}</strong><br></br></React.Fragment>)
         })
       }
     </p>
     </>
   )
 }
+//conditional css
+function ListItems(){
+  const list=['jesi','kann','wils'];
+  return(
+    <ul>
+      {
+        list.map((item,index)=>{
+          return <li key={index} style={{backgroundColor:index%2===0 ? 'lightgray' : 'white'}}> {item}</li>
+        })
+      }
+    </ul>
+  )
+}
 
+
+//main component
 function App() {
   return (
     <div className="App">
@@ -76,6 +92,7 @@ function App() {
       <ConditionalRender/>
       <List/>
       <NameRoll/>
+      <ListItems/>
     </div>
   );
 }
