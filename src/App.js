@@ -70,6 +70,7 @@ function NameRoll(){
   ];
   return (
     <>
+    <h1>Name and Rollno</h1>
     <p>
       {
         students.map((student)=>{
@@ -88,6 +89,8 @@ function NameRoll(){
 function ListItems(){
   const list=['jesi','kann','wils'];
   return(
+    <>
+    <h1>Conditional CSS</h1>
     <ul>
       {
         list.map((item,index)=>{
@@ -95,6 +98,7 @@ function ListItems(){
         })
       }
     </ul>
+    </>
   )
 }
 
