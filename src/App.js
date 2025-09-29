@@ -29,7 +29,7 @@ const onclickLog=(event)=>{
   console.log(event.target.value)
 }
 
-
+//names list
 function List(){
   const names=['jesi','kann','wila'];
 
@@ -40,14 +40,33 @@ function List(){
     </ul>
     <p>
       {names.map((name)=> name)}
-      {names.map((name,index)=> index===2 ? <strong> {name}</strong> : <>{name}</>)}
+      <br></br>
+      {names.map((name,index)=> index===2 ? <strong> {name} </strong> : <>{name}</>)}
     </p>
     </>
 
 
   )
 }
-
+//name and rollno
+function NameRoll(){
+  const students=[
+    {name:'jesi', rollno:1},
+    {name:'kann', rollno:2},
+    {name:'wila', rollno:3}
+  ];
+  return (
+    <>
+    <p>
+      {
+        students.map((student)=>{
+          return (<> <strong>{student.name} : {student.rollno}</strong><br></br></>)
+        })
+      }
+    </p>
+    </>
+  )
+}
 
 function App() {
   return (
@@ -56,6 +75,7 @@ function App() {
       <input type="text" onChange={onSearchChange} placeholder='search here'/>
       <ConditionalRender/>
       <List/>
+      <NameRoll/>
     </div>
   );
 }
