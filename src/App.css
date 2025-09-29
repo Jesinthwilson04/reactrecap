@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 } */
+.button {
+  background-color: lightblue;
+  font-size: 40px;
+  color: white;
+  padding: 40px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+}
+
+.button:hover {
+  background-color: gray;
+   /* color during click */
+}
+.button:active {
+  background-color: salmon ;
+  transform: translate(10px, 10px);
+   /* color during click */
+}

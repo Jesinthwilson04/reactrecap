@@ -119,9 +119,9 @@ function Counter(){
   return(
     <>
     <h2> Usestate hooks</h2>
-    <button className='button' style= {{backgroundColor:'lightblue', padding:'40px',fontSize:'44px'}} onClick={()=>countnorm++}>CounterButton normal : {countnorm}</button>
+    <button className='button'  onClick={()=>countnorm++}>CounterButton normal : {countnorm}</button>
     <br></br> <br></br>
-    <button className='button' style= {{backgroundColor:'lightblue', padding:'40px',fontSize:'44px'}} onClick={()=>setCount(count+1)} >CounterButtonhooks : {count}</button>
+    <button className='button' onClick={()=>setCount(count+1)} >CounterButtonhooks : {count}</button>
     </>
   )
 }
