@@ -111,16 +111,22 @@ function ListItems(){
 }
 
 //hooks
+let countnorm=0;
 //usestate
 function Counter(){
   let[count,setCount]=useState(0);
-  let countnorm=0;
+  let countnorm2=0;
 
   return(
     <>
     <h2> Usestate hooks</h2>
-    <button className='button'  onClick={()=>countnorm++}>CounterButton normal : {countnorm}</button>
+    <h3>👇why this not a state variable button count is increasing eventhough it is not a state variable beacause it is rendering when a state variable button clicked and also the variable should be initialized inside the componentd outside the function to see the changes.</h3>
     <br></br> <br></br>
+    <button className='button'  >CounterButton normal : {countnorm++}</button>
+    <h3>👇it is also not a state variable why this is not increasing the count because it was initialized inside the function on re rendering of each time a state variable is clicked the component is renrendered hence if you initialize the variable inside the function it remains the same value.</h3>
+    <button className='button'  >CounterButton normal : {countnorm2++}</button>
+    <br></br> <br></br>
+    <h3> 👇it is a state variable button</h3>
     <button className='button' onClick={()=>setCount(count+1)} >CounterButtonhooks : {count}</button> 
     {count>=10? <h4>Count reached 10 you can only exceed upto 20</h4> : null}
     <br></br> <br></br>
@@ -144,7 +150,8 @@ function App() {
       <Dash/> 
       <ListItems/>
       <Dash/>
-      <Counter/>  
+      <Counter/> 
+      <Dash/> 
     </div>
   );
 }
