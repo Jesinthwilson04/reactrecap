@@ -15,6 +15,8 @@ function ConditionalRender(){
   return(
     <div>
       <h2>Conditional Rendering</h2>
+      <p><code>const isAdmin=true isAdmin ? Admin :User</code></p>
+      <p><b>This was the code based as the isAdmin is true it is rendering the Admin if false user will be rendered and displayed</b></p>
       {isAdmin ? <h2>Admin</h2> : <h2>User</h2>}
     </div>
   )
@@ -208,6 +210,58 @@ function SearchHook(){
   )
 }
 
+//multiple states
+
+function UserDetails(){
+  const people={
+    name:'',
+    age:'',
+    email:'',
+    phone:''
+  }
+  const[details,setDetails]=useState(people);
+
+  function nameChangeevent(event){
+    setDetails({...details,name:event.target.value})
+  }
+
+  function ageChangeevent(event){
+    setDetails({...details,age:event.target.value})
+  }
+
+  function emailChangeevent(event){
+    setDetails({...details,email:event.target.value})
+  }
+
+  function phoneChangeevent(event){
+    setDetails({...details,phone:event.target.value})
+  }
+
+  return(
+    <>
+    <h1><u>Multiple States</u></h1>
+    <ul>
+    <li><h3>A component can have multiple variable only if the variable are independent to each other</h3></li>
+    <li><h3>In here the name, age, email and phone are dependent to each other</h3></li>
+    <li><h3>so we can group them together in an object and use a single state variable to manage them</h3></li>
+    <li><h3>and we can use spread operator to update the particular property of the object</h3></li>
+    <li><h3>...details is used to copy all the properties of the object and then we can update the particular property</h3></li>
+    <li><h3>if we don't use spread operator the other properties will be lost like <code>setDetails(details.name)</code> then the other details gets lost</h3></li>
+    </ul>
+    <input type="text" placeholder='enter your name' className='input' onChange={nameChangeevent}/>
+    <p>Name: {details.name}</p>
+    <input type="text" placeholder='enter your age' className='input' onChange={ageChangeevent}/>
+    <p>Age: {details.age}</p>
+    <input type="text" placeholder='enter your email' className='input' onChange={emailChangeevent}/>
+    <p>Email: {details.email}</p>
+    <input type="text" placeholder='enter your phone' className='input' onChange={phoneChangeevent}/>
+    <p>Phone: {details.phone}</p> 
+    </>
+  )
+
+}
+
+
 
 
 
@@ -232,6 +286,9 @@ function App() {
       <PropDecrementor count={count} setCount={setCount}/>  
       <Dash/>
       <SearchHook/>
+      <Dash/>
+      <UserDetails/>
+      <Dash/>
     </div>
   );
 }
