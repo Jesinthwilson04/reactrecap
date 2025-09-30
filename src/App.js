@@ -118,7 +118,7 @@ function Counter(){
   let countnorm2=0;
   return(
     <>
-    <h2> Usestate hooks</h2>
+    <h1> USESTATE HOOKS</h1>
     <h3>👇why this not a state variable button count is increasing eventhough it is not a state variable beacause it is rendering when a state variable button clicked and also the variable should be initialized inside the componentd outside the function to see the changes.</h3>
     <br></br> <br></br>
     <button className='button'  >CounterButton normal : {countnorm++}</button>
@@ -148,13 +148,16 @@ function PropIncrementor(props){
 
   return(
     <>
-    <h3>Actually the state variable can be used only inside a function component</h3>
-    <h3>here incrementor button is a one component and Decrementor is another component</h3>
-    <h3>if you initialize the count in each component separately it will not work as expected</h3>
-    <h3>then the increment takes place separately and Decrement takes place separately</h3>
-    <h3>but we need increment and Decrement the same variable so the solution is sending the variable from parent component to child component as parameter</h3>
-    <h3>which is nothing but props</h3>
-    <h3>by using the paramenter we can use the state variable of parent component in child components</h3>
+    <h1>PROPS </h1>
+    <ul>
+    <li><h3>Actually the state variable can be used only inside a function component</h3></li>
+    <li><h3>here incrementor button is a one component and Decrementor is another component</h3></li>
+    <li><h3>if you initialize the count in each component separately it will not work as expected</h3></li>
+    <li><h3>then the increment takes place separately and Decrement takes place separately</h3></li>
+    <li><h3>but we need increment and Decrement the same variable so the solution is sending the variable from parent component to child component as parameter</h3></li>
+    <li><h3>which is nothing but props</h3></li>
+    <li><h3>by using the parameter we can use the state variable of parent component in child components</h3></li>
+    </ul>
     <button className='button' onClick={Increment}>
       Increment 
     </button>
