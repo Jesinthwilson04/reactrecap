@@ -325,29 +325,34 @@ function AddToCart(){
   ]
   const[cart,setCart]=useState([]);
 
-  function Cart(id){
+  function cartFiller(id){
     const selected=products.find((product)=>product.id===id);
     setCart([...cart,selected])
     console.log(cart)
   }
-
+  function removeItem(id){
+    const updatedCart=cart.filter((item)=>item.id!==id);
+    setCart(updatedCart);
+  }
 
 
   return(
     <>
     <div>
-      {products.map((product,index)=>(
-        <p key={index}>{product.name}<button key={index} onClick={()=>Cart(product.id)}>Add to Cart</button></p>
-    
-      ))}
-      {/* <div>Cart Items:
-        {
-          <ul>{
-            cart.map((car,index)=><li key={index}>{car.name}: {car.price}</li>)
-            }</ul>
-        }
-      </div> */}
-        
+      <p>add brand to your cart</p>
+      {products.map((product)=><div>
+        <span >{product.name}</span>
+        <button  onClick={()=>cartFiller(product.id)}>Add to Cart</button>
+       </div>
+      )}
+      <p>Cart Items:</p>
+      <ul>
+        {cart.map((item, index) => (
+          <li key={index}>{item.name} - ₹{item.price} <button onClick={()=>removeItem(item.id)}>remove</button></li>
+        ))}
+      </ul>
+
+
     </div>
     </>
   )
