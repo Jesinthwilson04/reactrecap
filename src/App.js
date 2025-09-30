@@ -208,6 +208,7 @@ function App() {
       <Dash/> 
       <PropIncrementor count={count} setCount={setCount}/>  
       <PropDecrementor count={count} setCount={setCount}/>  
+      <Dash/>
     </div>
   );
 }
