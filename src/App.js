@@ -171,7 +171,11 @@ function PropDecrementor(props){
   const{count,setCount}=props;
   
   function Decrement(){
-    setCount(count-1)
+    //decrementing by 3
+    setCount((count)=>count-1)
+    setCount((count)=>count-1)
+    setCount((count)=>count-1)
+
   } 
   return(
     <>
@@ -185,6 +189,23 @@ function PropDecrementor(props){
   )
 }
 
+//search hook
+function SearchHook(){
+  
+  const[search,setSearch]=useState('');
+
+  const display = (event) => {
+    setSearch(event.target.value);
+
+  }
+  return(
+
+    <>
+    <input type='text' placeholder='search here' onChange={display}/>
+    <p>{search}</p>
+    </>
+  )
+}
 
 
 
@@ -209,6 +230,7 @@ function App() {
       <PropIncrementor count={count} setCount={setCount}/>  
       <PropDecrementor count={count} setCount={setCount}/>  
       <Dash/>
+      <SearchHook/>
     </div>
   );
 }
