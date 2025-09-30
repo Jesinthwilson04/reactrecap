@@ -116,10 +116,6 @@ let countnorm=0;
 function Counter(){
   let[count,setCount]=useState(0);
   let countnorm2=0;
-
-
-//
-
   return(
     <>
     <h2> Usestate hooks</h2>
@@ -139,8 +135,55 @@ function Counter(){
   )
 }
 
+
+//PROPS
+
+//accessing the variable from parent to child using props
+function PropIncrementor(props){
+  const{count,setCount}=props;
+
+  function Increment(){
+    setCount(count+1)
+  }
+
+  return(
+    <>
+    <h3>Actually the state variable can be used only inside a function component</h3>
+    <h3>here incrementor button is a one component and Decrementor is another component</h3>
+    <button className='button' onClick={Increment}>
+      Increment 
+    </button>
+    <br></br>
+    <br></br>
+    </>
+  )
+}
+//accessing the variable from parent to child using props
+function PropDecrementor(props){
+  const{count,setCount}=props;
+  
+  function Decrement(){
+    setCount(count-1)
+  } 
+  return(
+    <>
+      <button className='button' onClick={Decrement}>
+      Decrement  
+     
+    </button>
+      <h1> count : {count}</h1>
+    </>
+
+  )
+}
+
+
+
+
+
 //main component
 function App() {
+  const[count,setCount]=useState(0);
   return (
     <div className="App">
       <button onClick={onclickLog} value={0}>clickme</button>
@@ -155,6 +198,8 @@ function App() {
       <Dash/>
       <Counter/> 
       <Dash/> 
+      <PropIncrementor count={count} setCount={setCount}/>  
+      <PropDecrementor count={count} setCount={setCount}/>  
     </div>
   );
 }
