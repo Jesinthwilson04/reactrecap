@@ -98,7 +98,7 @@ function ListItems(){
   const list=['jesi','kann','wils'];
   return(
     <>
-    <h2>Conditional CSS</h2>
+    <h2><u>Conditional CSS</u></h2>
     <ul>
       {
         list.map((item,index)=>{
@@ -118,11 +118,11 @@ function Counter(){
   let countnorm2=0;
   return(
     <>
-    <h1> USESTATE HOOKS</h1>
-    <h3>👇why this not a state variable button count is increasing eventhough it is not a state variable beacause it is rendering when a state variable button clicked and also the variable should be initialized inside the componentd outside the function to see the changes.</h3>
+    <h1> <u>USESTATE HOOKS</u></h1>
+    <h3>👇 This is not a state variable. The button count increases even though it's not a state variable because the component re-renders when a state variable button is clicked. To see changes in such variables, they should be initialized inside the component but outside the function.</h3>
     <br></br> <br></br>
     <button className='button'  >CounterButton normal : {countnorm++}</button>
-    <h3>👇it is also not a state variable why this is not increasing the count because it was initialized inside the function on re rendering of each time a state variable is clicked the component is renrendered hence if you initialize the variable inside the function it remains the same value.</h3>
+    <h3>👇 This is also not a state variable. The count doesn't increase because it's initialized inside the function. On each re-render triggered by a state change, the component resets this variable to its initial value. Hence, it remains unchanged.</h3>
     <button className='button'  >CounterButton normal : {countnorm2++}</button>
     <br></br> <br></br>
     <h3> 👇it is a state variable button</h3>
@@ -148,7 +148,7 @@ function PropIncrementor(props){
 
   return(
     <>
-    <h1>PROPS </h1>
+    <h1><u>PROPS</u> </h1>
     <ul>
     <li><h3>Actually the state variable can be used only inside a function component</h3></li>
     <li><h3>here incrementor button is a one component and Decrementor is another component</h3></li>
