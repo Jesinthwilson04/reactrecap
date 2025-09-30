@@ -327,18 +327,31 @@ function AddToCart(){
 
   function cartFiller(id){
     const selected=products.find((product)=>product.id===id);
-    setCart([...cart,selected])
+    const exits=cart.find((item)=>item.id===id);
+    if(exits){
+      setCart(cart.map((item)=>item.id===id ?{...item,qty:item.qty+1}:item))
+    }
+    else{
+      setCart([...cart,{...selected,qty:1}])
+    }
     console.log(cart)
   }
   function removeItem(id){
     const updatedCart=cart.filter((item)=>item.id!==id);
-    setCart(updatedCart);
+    const exits=cart.find((item)=>item.id===id);
+    if(exits.qty>1){
+      setCart(cart.map((item)=>item.id===id ?{...item,qty:item.qty-1}:item))
+    }
+    else{
+      setCart(updatedCart);
+    }
   }
 
 
   return(
     <>
     <div>
+      <h1><u>ADD TO CART</u></h1>
       <p>add brand to your cart</p>
       {products.map((product)=><div>
         <span >{product.name}</span>
@@ -348,9 +361,10 @@ function AddToCart(){
       <p>Cart Items:</p>
       <ul>
         {cart.map((item, index) => (
-          <li key={index}>{item.name} - ₹{item.price} <button onClick={()=>removeItem(item.id)}>remove</button></li>
+          <li key={index}>{item.name} - ₹{item.price} X {item.qty} <button onClick={()=>removeItem(item.id)}>remove</button></li>
         ))}
       </ul>
+      <p> Total: ₹{cart.reduce((acc, item) => acc + item.price * item.qty, 0)}</p>
 
 
     </div>
