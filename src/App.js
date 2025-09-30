@@ -266,6 +266,52 @@ function UserDetails(){
 }
 
 
+//search filer
+function SearchFilter(){
+  const brands=[
+    {'id':1,'name':'nike'},
+    {'id':2,'name':'adidas'},
+    {'id':3,'name':'puma'},
+    {'id':4,'name':'reebok'},
+    {'id':5,'name':'fila'},
+    {'id':6,'name':'asics'},
+    {'id':7,'name':'new balance'}
+  ]
+  //state variable for brands to display dynamically
+  const[brand,setBrand]=useState(brands);
+  function filterBrand(event){
+    //handling case insensitive
+    const value=event.target.value.toLowerCase();
+    //if search box is empty display all the brands
+    if(value.length<=0){
+      setBrand(brands);
+    }
+    //filtering the brands based on the search box value
+    else {
+      const filteredBrands = brands.filter((brand)=>brand.name.toLowerCase().includes(value));
+      if(filteredBrands.length > 0){
+        setBrand(filteredBrands);
+      } 
+      //if no items matches the list shows no items found
+      else {
+        setBrand([{id: 0, name: 'No items found'}]);
+      }
+    }
+  }
+
+  return(
+    <>
+    <h1><u>SEARCH FILTER</u></h1>
+    <h3>👇you can filter the items by typing in the search box</h3>
+    <input type='text'placeholder='search to filter items' onChange={filterBrand}/>  
+    <ul>
+      {
+        brand.map((brand)=><li key={brand.id}>{brand.name}</li>)
+      }
+    </ul>
+    </>
+  )
+}
 
 
 
@@ -292,6 +338,8 @@ function App() {
       <SearchHook/>
       <Dash/>
       <UserDetails/>
+      <Dash/>
+      <SearchFilter/>
       <Dash/>
     </div>
   );
