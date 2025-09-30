@@ -315,6 +315,46 @@ function SearchFilter(){
 
 
 
+//add to cart
+function AddToCart(){
+  const products=[
+    {id:1,name:'nike',price:1000},
+    {id:2,name:'adidas',price:2000},
+    {id:3,name:'puma',price:1500},
+    {id:4,name:'reebok',price:1800},
+  ]
+  const[cart,setCart]=useState([]);
+
+  function Cart(id){
+    const selected=products.find((product)=>product.id===id);
+    setCart([...cart,selected])
+    console.log(cart)
+  }
+
+
+
+  return(
+    <>
+    <div>
+      {products.map((product,index)=>(
+        <p key={index}>{product.name}<button key={index} onClick={()=>Cart(product.id)}>Add to Cart</button></p>
+    
+      ))}
+      {/* <div>Cart Items:
+        {
+          <ul>{
+            cart.map((car,index)=><li key={index}>{car.name}: {car.price}</li>)
+            }</ul>
+        }
+      </div> */}
+        
+    </div>
+    </>
+  )
+}
+
+
+
 //main component
 function App() {
   const[count,setCount]=useState(0);
@@ -341,6 +381,7 @@ function App() {
       <Dash/>
       <SearchFilter/>
       <Dash/>
+      <AddToCart/>
     </div>
   );
 }
