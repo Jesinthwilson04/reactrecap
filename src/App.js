@@ -201,7 +201,8 @@ function SearchHook(){
   return(
 
     <>
-    <input type='text' placeholder='search here' onChange={display}/>
+    <h1><u>SEARCH HOOK</u></h1>
+    <input type='text' placeholder='search here' onChange={display} style={{padding:'20px',fontSize:'16px',borderRadius:'5px',borderColor:'lightgray',borderWidth:'1px',borderStyle:'solid',color:'black'}}/>
     <p>{search}</p>
     </>
   )
