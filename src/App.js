@@ -117,6 +117,9 @@ function Counter(){
   let[count,setCount]=useState(0);
   let countnorm2=0;
 
+
+//
+
   return(
     <>
     <h2> Usestate hooks</h2>
