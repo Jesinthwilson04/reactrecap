@@ -383,20 +383,21 @@ function AddToCart(){
 //useRef
 function UseRefExample(){
   const[start,setStart]=useState(0);
+  const[start2,setStart2]=useState(0);
   const timeridref=useRef(null);
   
   let timerid='';
   //function to start the timer
-  const timerFunc=()=>{
-    timeridref=setInterval(()=>{
-      setStart((start)=>start+1)
-    },2000)
-    //
+  const timerFunc1=()=>{
     timerid=setInterval(()=>{
       setStart((start)=>start+1)
-    },2000)
-
+    },400)
   }
+
+  const timerFunc2=()=>{
+    timeridref.current=setInterval(()=>{
+      setStart2((start2)=>start2+1)
+    },400)}
 
   //function to stop the timer
   const timerStop=()=>{
@@ -404,7 +405,8 @@ function UseRefExample(){
         console.log({timerid})
   }
   const timerStop2=()=>{
-    clearInterval(timeridref);
+    clearInterval(timeridref.current);
+    console.log({timeridref})
 
   }
 
@@ -417,13 +419,14 @@ function UseRefExample(){
       <li>It can be used to store a mutable value that does not cause re-renders when updated.</li>
     </ul>
     </h4 >
-    <button onClick={timerFunc}>Start</button>
+    <button onClick={timerFunc1}>Start</button>
     <button onClick={timerStop}>timerStop</button>
     <b>{start}</b><span>👈you cannot stop this</span>
     <h4>why is not stoping because every time re-render the timerid is reset to its initial value<code style={{color:'red'}}>   let timerid='';</code> we cannot access the previous timerid value.if only then can increment the value</h4>
-    <button onClick={timerFunc}>Start</button>
+    <button onClick={timerFunc2}>Start</button>
     <button onClick={timerStop2}>timerStop</button>
-    <b>{start}</b><span>👈you cannot stop this</span>
+    <b>{start2}</b><span>👈you can stop this</span>
+    <h4>why it is stopping because we are using useRef to store the timer id, so it doesn't get reset on re-renders</h4>
     </>
   )
 }
@@ -459,6 +462,7 @@ function App() {
       <AddToCart/>
       <Dash/>
       <UseRefExample/>
+      <Dash/>
     </div>
   );
 }
