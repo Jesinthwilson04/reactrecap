@@ -121,6 +121,7 @@ function Counter(){
   return(
     <>
     <h1> <u>USESTATE HOOKS</u></h1>
+    <h2>what is useState ? useState is a hook that allows re-rendering of a component when its state changes.</h2>
     <h3>👇 This is not a state variable. The button count increases even though it's not a state variable because the component re-renders when a state variable button is clicked. To see changes in such variables, they should be initialized inside the component but outside the function.</h3>
     <br></br> <br></br>
     <button className='button'  >CounterButton normal : {countnorm++}</button>
@@ -324,24 +325,28 @@ function AddToCart(){
     {id:4,name:'reebok',price:1800},
   ]
   const[cart,setCart]=useState([]);
-
+  //function to add items to cart
   function cartFiller(id){
     const selected=products.find((product)=>product.id===id);
+    //check if item already exists in cart
     const exits=cart.find((item)=>item.id===id);
+    //if item exists in cart increase the quantity
     if(exits){
       setCart(cart.map((item)=>item.id===id ?{...item,qty:item.qty+1}:item))
-    }
+    }//if item doesn't exist add the item to cart with quantity 1
     else{
       setCart([...cart,{...selected,qty:1}])
     }
-    console.log(cart)
   }
+  //function to remove item from cart
   function removeItem(id){
     const updatedCart=cart.filter((item)=>item.id!==id);
+    //check if item exists in cart
     const exits=cart.find((item)=>item.id===id);
+    //if item exists in cart decrease the quantity
     if(exits.qty>1){
       setCart(cart.map((item)=>item.id===id ?{...item,qty:item.qty-1}:item))
-    }
+    }//if quantity is 1 remove the item from cart
     else{
       setCart(updatedCart);
     }
@@ -401,6 +406,7 @@ function App() {
       <SearchFilter/>
       <Dash/>
       <AddToCart/>
+      <Dash/>
     </div>
   );
 }
