@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import { useState } from 'react'; 
+import { useRef } from 'react';
+import { clear } from '@testing-library/user-event/dist/clear';
 
 
 
@@ -378,6 +380,55 @@ function AddToCart(){
 }
 
 
+//useRef
+function UseRefExample(){
+  const[start,setStart]=useState(0);
+  const timeridref=useRef(null);
+  
+  let timerid='';
+  //function to start the timer
+  const timerFunc=()=>{
+    timeridref=setInterval(()=>{
+      setStart((start)=>start+1)
+    },2000)
+    //
+    timerid=setInterval(()=>{
+      setStart((start)=>start+1)
+    },2000)
+
+  }
+
+  //function to stop the timer
+  const timerStop=()=>{
+    clearInterval(timerid);
+        console.log({timerid})
+  }
+  const timerStop2=()=>{
+    clearInterval(timeridref);
+
+  }
+
+
+  return(
+    <>
+    <h1><u>USEREF</u></h1>
+    <h4><ul>
+      <li>useRef is a React Hook that lets you reference a value that’s not needed for rendering.</li>
+      <li>It can be used to store a mutable value that does not cause re-renders when updated.</li>
+    </ul>
+    </h4 >
+    <button onClick={timerFunc}>Start</button>
+    <button onClick={timerStop}>timerStop</button>
+    <b>{start}</b><span>👈you cannot stop this</span>
+    <h4>why is not stoping because every time re-render the timerid is reset to its initial value<code style={{color:'red'}}>   let timerid='';</code> we cannot access the previous timerid value.if only then can increment the value</h4>
+    <button onClick={timerFunc}>Start</button>
+    <button onClick={timerStop2}>timerStop</button>
+    <b>{start}</b><span>👈you cannot stop this</span>
+    </>
+  )
+}
+
+
 
 //main component
 function App() {
@@ -407,6 +458,7 @@ function App() {
       <Dash/>
       <AddToCart/>
       <Dash/>
+      <UseRefExample/>
     </div>
   );
 }
