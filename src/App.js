@@ -436,9 +436,11 @@ function UseRefExample(){
 //use effect
 function UseEffectExample(){
   const[count,setCount]=useState(0);
+  const[products,setProducts]=useState([]);
   async function getter(url){
     try{
       const  {data:{products}}= await axios.get(url);
+      setProducts(products);
       console.log(products);
     }catch(error){
       console.error('Error fetching data:', error);
@@ -470,6 +472,8 @@ function UseEffectExample(){
     <h4>
       Check the console to see when the useEffect is called. It will be called whenever the count changes.
     </h4>
+    <h2><b>product category directly fetching from https://dummyjson.com/products whenever you click the count button</b></h2 >
+    <h4>{products.map((product)=>`${product.category},\t`)}</h4>
 
     </>
   )
