@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import Country from './Country';
+import axios from 'axios';
 
 
 
@@ -435,11 +436,19 @@ function UseRefExample(){
 //use effect
 function UseEffectExample(){
   const[count,setCount]=useState(0);
+  async function getter(url){
+    try{
+      const  {data:{products}}= await axios.get(url);
+      console.log(products);
+    }catch(error){
+      console.error('Error fetching data:', error);
+    }
+  }
+
   useEffect(()=>{
-    fetch('https://dummyjson.com/products')
-    .then(res=>res.json())
-    .then(console.log)
-    console.log('useEffect called')
+    const url= 'https://dummyjson.com/products'
+    getter(url)
+
   },[count])
 
   return(
