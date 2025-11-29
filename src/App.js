@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { use } from 'react';
 import './App.css';
 import { useState } from 'react'; 
 import { useRef } from 'react';
-import { clear } from '@testing-library/user-event/dist/clear';
+import { useEffect } from 'react';
+import Country from './Country';
+
 
 
 
@@ -426,7 +428,20 @@ function UseRefExample(){
     <button onClick={timerFunc2}>Start</button>
     <button onClick={timerStop2}>timerStop</button>
     <b>{start2}</b><span>👈you can stop this</span>
-    <h4>why it is stopping because we are using useRef to store the timer id, so it doesn't get reset on re-renders</h4>
+    <h4>why it is stopping because we are using useRef to store the timer id, <code style={{color:'red'}}>  const timeridref=useRef(null);</code> so it doesn't get reset on re-renders</h4>
+    </>
+  )
+}
+//use effect
+function UseEffectExample(){
+  const[text,setText]=useState('');
+  useEffect(()=>{
+    setText('useEffect Hook called')
+  },[])
+
+  return(
+    <>
+    <h1>{text}</h1>
     </>
   )
 }
@@ -463,6 +478,9 @@ function App() {
       <Dash/>
       <UseRefExample/>
       <Dash/>
+      <Country/>
+      <Dash/>
+      <UseEffectExample/>
     </div>
   );
 }
