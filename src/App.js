@@ -434,10 +434,10 @@ function UseRefExample(){
 }
 //use effect
 function UseEffectExample(){
-  const[text,setText]=useState('');
+  const[count,setCount]=useState(0);
   useEffect(()=>{
-    setText('useEffect Hook called')
-  },[])
+    console.log('use effect called');
+  },[count])
 
   return(
     <>
@@ -453,7 +453,12 @@ function UseEffectExample(){
       <li>If there are dependencies specified in the array the effect runs whenever any of those dependencies change.</li>
     </ul>
     </h4 >
-    <h1>{text}</h1>
+    <button onClick={() => setCount(count + 1)}>Increment Count</button>
+    <p>Count: {count}</p>
+    <h4>
+      Check the console to see when the useEffect is called. It will be called whenever the count changes.
+    </h4>
+
     </>
   )
 }
