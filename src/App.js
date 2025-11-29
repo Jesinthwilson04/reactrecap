@@ -441,6 +441,18 @@ function UseEffectExample(){
 
   return(
     <>
+    <h1><u>USEEFFECT HOOK</u></h1>
+    <h4><ul>
+      <li>useEffect is a React Hook that lets you perform side effects in function components.</li>
+      <li>It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes, but unified into a single API.</li>
+      <li>By using this hook we can perform side effects like data fetching, setting up a subscription, and manually changing the DOM in React components.</li>
+      <li>use effect comprises of two part a callback function and a dependency array.</li>
+      <li>The callback function contains the side effect logic that we want to perform.</li>
+      <li>The dependency array is an optional second argument that specifies when the effect should be re-run.</li>
+      <li>If the dependency array is empty the effect runs only once after the initial render.</li>
+      <li>If there are dependencies specified in the array the effect runs whenever any of those dependencies change.</li>
+    </ul>
+    </h4 >
     <h1>{text}</h1>
     </>
   )
