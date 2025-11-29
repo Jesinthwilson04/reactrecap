@@ -436,7 +436,10 @@ function UseRefExample(){
 function UseEffectExample(){
   const[count,setCount]=useState(0);
   useEffect(()=>{
-    console.log('use effect called');
+    fetch('https://dummyjson.com/products')
+    .then(res=>res.json())
+    .then(console.log)
+    console.log('useEffect called')
   },[count])
 
   return(
